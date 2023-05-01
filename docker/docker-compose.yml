@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db1:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: db1user
+      POSTGRES_PASSWORD: db1password
+      POSTGRES_DB: db1
+    ports:
+      - "5432:5432"
+    volumes:
+      - db1data:/var/lib/postgresql/data
+
+  db2:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: db2user
+      POSTGRES_PASSWORD: db2password
+      POSTGRES_DB: db2
+    ports:
+      - "5433:5432"
+    volumes:
+      - db2data:/var/lib/postgresql/data
+
+volumes:
+  db1data:
+  db2data:
