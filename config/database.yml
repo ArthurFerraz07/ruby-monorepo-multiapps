@@ -2,16 +2,25 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV["DATABASE_USER"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
-  database: <%= ENV["DATABASE_NAME"] %>
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  username: user
+  password: password
+  database: almost_rails_monorepo_development
+  port: 5432
 
 test:
   <<: *default
+  username: user
+  password: password
+  database: almost_rails_monorepo_test
+  port: 5433
 
 production:
   <<: *default
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
