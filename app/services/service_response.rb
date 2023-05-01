@@ -1,9 +1,8 @@
 class ServiceResponse
-  class ServiceError < StandardError; end
-
   attr_accessor :success, :error, :data, :error_message
 
-  def initialize(success:, data:, error:)
+  def initialize(success: true, data: nil, error: nil)
+    @success = success
     @data = data
     @error = error
     @error_message = error&.message || error_message
