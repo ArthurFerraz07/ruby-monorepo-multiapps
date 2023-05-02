@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     post 'signup', to: 'identities#signup'
   end
 
-  scope '/prices' do
+  scope '/price' do
     get '/', to: 'prices#index'
+  end
+
+  scope 'withdraw' do
+    post '/', to: 'withdraws#start'
   end
 end
