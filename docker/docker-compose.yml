@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  development:
+  identity_development:
     image: postgres
     restart: always
     environment:
@@ -11,8 +11,8 @@ services:
       - "5432:5432"
     volumes:
       - development:/var/lib/postgresql/data
-
-  test:
+  
+  identity_test:
     image: postgres
     restart: always
     environment:
@@ -20,6 +20,28 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5433:5432"
+    volumes:
+      - development:/var/lib/postgresql/data
+
+  withdraw_development:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
+    volumes:
+      - test:/var/lib/postgresql/data
+
+  withdraw_test:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5435:5432"
     volumes:
       - test:/var/lib/postgresql/data
 

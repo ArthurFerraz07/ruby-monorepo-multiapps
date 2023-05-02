@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  scope '/identity' do
-    post 'signin', to: 'identities#signin'
-    post 'signup', to: 'identities#signup'
-  end
+  mount IdentityEngine::Engine => "/identity"
 
   scope '/price' do
     get '/', to: 'prices#index'

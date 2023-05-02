@@ -1,3 +1,22 @@
+PATH
+  remote: identity_engine
+  specs:
+    identity_engine (0.1.0)
+      bcrypt (~> 3.1.7)
+      rails (>= 7.0.4.3)
+
+PATH
+  remote: price_engine
+  specs:
+    price_engine (0.1.0)
+      rails (>= 7.0.4.3)
+
+PATH
+  remote: withdraw_engine
+  specs:
+    withdraw_engine (0.1.0)
+      rails (>= 7.0.4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -196,16 +215,18 @@ PLATFORMS
 DEPENDENCIES
   async
   awesome_print
-  bcrypt (~> 3.1.7)
   bootsnap
   debug
   dotenv-rails
+  identity_engine!
   pg (~> 1.1)
+  price_engine!
   pry
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   rspec-rails (~> 6.0.0)
   tzinfo-data
+  withdraw_engine!
 
 RUBY VERSION
    ruby 3.1.3p185
