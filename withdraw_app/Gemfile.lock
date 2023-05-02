@@ -188,6 +188,7 @@ DEPENDENCIES
   async
   bootsnap
   debug
+  dotenv-rails
   identity_app!
   pg (~> 1.1)
   pry
