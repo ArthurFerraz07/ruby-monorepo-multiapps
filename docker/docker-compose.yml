@@ -42,8 +42,6 @@ services:
       - withdraw_test:/var/lib/postgresql/data
 
 volumes:
-  general_development:
-  general_test:
   identity_development:
   identity_test:
   withdraw_development:
