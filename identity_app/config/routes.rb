@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  scope '/identity', module: 'identity_app' do
-    post 'signin', to: 'identities#signin'
-    post 'signup', to: 'identities#signup'
+  if ENV['APP_NAME'] == 'identity_app'
+    scope '/identity', module: 'identity_app' do
+      post 'signin', to: 'identities#signin'
+      post 'signup', to: 'identities#signup'
+    end
   end
 end

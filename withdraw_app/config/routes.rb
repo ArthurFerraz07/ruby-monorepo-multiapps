@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  scope 'withdraw' do
-    get '/', to: 'withdraws#index'
-    post '/', to: 'withdraws#start'
+  if ENV['APP_NAME'] == 'withdraw_app'
+    scope 'withdraw' do
+      get '/', to: 'withdraws#index'
+      post '/', to: 'withdraws#start'
+    end
   end
 end
