@@ -2,8 +2,7 @@ module IdentityEngine
   class IdentitiesController < ApplicationController
     # POST /signin
     def signin
-      ap 'hbdhgfv'
-      service_response = IdentityEngine::SigninService.new(signin_params).call
+      service_response = SigninService.new(signin_params).call
       if service_response.success
         render(json: service_response.data)
       else
