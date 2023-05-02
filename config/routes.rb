@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   mount IdentityEngine::Engine => "/identity"
 
-  scope '/price' do
-    get '/', to: 'prices#index'
-  end
+  mount PriceEngine::Engine => "/price"
 
-  scope 'withdraw' do
-    get '/', to: 'withdraws#index'
-    post '/', to: 'withdraws#start'
-  end
+  mount WithdrawEngine::Engine => "/withdraw"
 end

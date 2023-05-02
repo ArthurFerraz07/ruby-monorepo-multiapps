@@ -1,5 +1,7 @@
-class PricesController < ApplicationController
-  def index
-    render(json: PricesService.new.call)
+module PriceEngine
+  class PricesController < ApplicationController
+    def index
+      render(json: PricesService.new.call)
+    end
   end
 end
