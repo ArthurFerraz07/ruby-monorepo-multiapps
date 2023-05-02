@@ -1,3 +1,12 @@
+PATH
+  remote: .
+  specs:
+    identity_app (1.0.0)
+      awesome_print
+      bcrypt
+      dotenv-rails
+      rails (~> 7.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -172,6 +181,7 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
+  identity_app!
   pg (~> 1.1)
   pry
   puma (~> 5.0)

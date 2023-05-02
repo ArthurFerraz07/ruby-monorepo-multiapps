@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  scope '/identity' do
+  scope '/identity', module: 'identity_app' do
     post 'signin', to: 'identities#signin'
     post 'signup', to: 'identities#signup'
   end
