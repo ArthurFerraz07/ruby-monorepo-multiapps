@@ -1,4 +1,4 @@
-require "entity_engine"
+# require "entity_engine"
 
 module WithdrawEngine
   class WithdrawsController < ApplicationController
@@ -6,8 +6,8 @@ module WithdrawEngine
     # before_action :authenticate!, only: %i[start index]
 
     def index
-      withdraws = Withdraw.where(identity_id: @identity.id)
-      render(json: withdraws)
+      # withdraws = Withdraw.where(identity_id: @identity.id)
+      # render(json: withdraws)
     end
 
     # POST /withdraws

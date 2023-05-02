@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 module IdentityEngine
   class SigninService < ApplicationService
     def initialize(params)

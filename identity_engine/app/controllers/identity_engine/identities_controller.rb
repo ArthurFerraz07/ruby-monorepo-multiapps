@@ -3,7 +3,6 @@ module IdentityEngine
     # POST /signin
     def signin
       ap 'hbdhgfv'
-      binding.pry
       service_response = IdentityEngine::SigninService.new(signin_params).call
       if service_response.success
         render(json: service_response.data)

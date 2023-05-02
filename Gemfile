@@ -42,8 +42,10 @@ gem 'awesome_print'
 # async ruby!
 gem 'async'
 
-# Identity engine
+# Engines
 gem 'identity_engine', path: 'identity_engine'
+gem 'price_engine', path: 'price_engine'
+gem 'withdraw_engine', path: 'withdraw_engine'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -56,6 +58,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem 'withdraw_engine', path: 'withdraw_engine'
-gem 'price_engine', path: 'price_engine'

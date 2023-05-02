@@ -1,9 +1,7 @@
 PATH
   remote: .
   specs:
-    identity_engine (0.1.0)
-      bcrypt (~> 3.1.7)
-      bootsnap
+    withdraw_engine (0.1.0)
       rails (>= 7.0.4.3)
 
 GEM
@@ -74,9 +72,6 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    bcrypt (3.1.18)
-    bootsnap (1.16.0)
-      msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -98,7 +93,6 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
-    msgpack (1.7.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -143,6 +137,13 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -156,10 +157,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bcrypt
-  bootsnap
-  identity_engine!
   pg
+  sprockets-rails
+  withdraw_engine!
 
 BUNDLED WITH
    2.3.26

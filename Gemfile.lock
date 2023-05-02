@@ -3,6 +3,7 @@ PATH
   specs:
     identity_engine (0.1.0)
       bcrypt (~> 3.1.7)
+      bootsnap
       rails (>= 7.0.4.3)
 
 PATH
