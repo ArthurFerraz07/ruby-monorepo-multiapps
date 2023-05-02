@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 module IdentityApp
   class SignupService < ApplicationService
     def initialize(params)

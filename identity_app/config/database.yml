@@ -5,18 +5,20 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  username: user
-  password: password
-  database: identity_development
-  port: 5434
+  identity_app:
+    <<: *default
+    username: user
+    password: password
+    database: identity_development
+    port: 5434
 
 test:
-  <<: *default
-  username: user
-  password: password
-  database: identity_test
-  port: 5435
+  identity_app:
+    <<: *default
+    username: user
+    password: password
+    database: identity_test
+    port: 5435
 
 # production:
 #   <<: *default
