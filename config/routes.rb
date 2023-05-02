@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   scope 'withdraw' do
+    get '/', to: 'withdraws#index'
     post '/', to: 'withdraws#start'
   end
 end

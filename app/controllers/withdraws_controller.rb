@@ -1,6 +1,11 @@
 class WithdrawsController < ApplicationController
   include AuthenticationConcern
-  before_action :authenticate!, only: %i[start]
+  before_action :authenticate!, only: %i[start index]
+
+  def index
+    withdraws = Withdraw.where(identity_id: @identity.id)
+    render(json: withdraws)
+  end
 
   # POST /withdraws
   def start
