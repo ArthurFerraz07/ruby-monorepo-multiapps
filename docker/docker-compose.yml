@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  identity_development:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
+    volumes:
+      - identity_development:/var/lib/postgresql/data
+  
+  identity_test:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5435:5432"
+    volumes:
+      - identity_test:/var/lib/postgresql/data
+
+  withdraw_development:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5436:5432"
+    volumes:
+      - withdraw_development:/var/lib/postgresql/data
+
+  withdraw_test:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5437:5432"
+    volumes:
+      - withdraw_test:/var/lib/postgresql/data
+
+volumes:
+  general_development:
+  general_test:
+  identity_development:
+  identity_test:
+  withdraw_development:
+  withdraw_test:

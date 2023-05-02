@@ -43,7 +43,6 @@ gem 'dotenv-rails'
 gem 'awesome_print'
 
 # async ruby!
-
 gem 'async'
 
 group :development, :test do
