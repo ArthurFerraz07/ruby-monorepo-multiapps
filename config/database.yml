@@ -6,44 +6,44 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  username: user
-  password: password
-  database: general_development
-  port: 5432
-  # identity:
-  #   <<: *default
-  #   username: user
-  #   password: password
-  #   database: identity_development
-  #   port: 5434
+  # <<: *default
+  # username: user
+  # password: password
+  # database: general_development
+  # port: 5432
+  identity:
+    <<: *default
+    username: user
+    password: password
+    database: identity_development
+    port: 5434
 
-  # withdraw:
-  #   <<: *default
-  #   username: user
-  #   password: password
-  #   database: withdraw_development
-  #   port: 5436
+  withdraw:
+    <<: *default
+    username: user
+    password: password
+    database: withdraw_development
+    port: 5436
 
 test:
-  <<: *default
-  username: user
-  password: password
-  database: general_test
-  port: 5433
-  # identity:
-  #   <<: *default
-  #   username: user
-  #   password: password
-  #   database: identity_test
-  #   port: 5435
+  # <<: *default
+  # username: user
+  # password: password
+  # database: general_test
+  # port: 5433
+  identity:
+    <<: *default
+    username: user
+    password: password
+    database: identity_test
+    port: 5435
 
-  # withdraw:
-  #   <<: *default
-  #   username: user
-  #   password: password
-  #   database: withdraw_test
-  #   port: 5437
+  withdraw:
+    <<: *default
+    username: user
+    password: password
+    database: withdraw_test
+    port: 5437
 
 
 
