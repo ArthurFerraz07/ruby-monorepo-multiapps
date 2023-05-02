@@ -7,7 +7,6 @@ class IdentitiesController < ApplicationController
     if service_response.success
       render(json: service_response.data)
     else
-      binding.pry
       render(json: { error: service_response.error_message }, status: 401)
     end
   end

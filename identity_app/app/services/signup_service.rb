@@ -21,7 +21,8 @@ class SignupService < ApplicationService
     end
   rescue ActiveRecord::RecordInvalid => e
     ServiceResponse.new(success: false, error: e)
-  rescue StandardError
+  rescue StandardError => e
+    binding.pry
     ServiceResponse.new(success: false, error: ServiceError.new('error', genesis_error: e))
   end
 
