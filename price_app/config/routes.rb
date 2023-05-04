@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   if ENV['APP_NAME'] == 'price_app'
-    scope '/price' do
+    scope '/price', module: 'price_app' do
       get '/', to: 'prices#index'
     end
   end

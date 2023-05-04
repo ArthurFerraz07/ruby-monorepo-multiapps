@@ -30,6 +30,9 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
+# santa cruz monorepo apps
+gem 'santa_cruz', path: '../santa_cruz'
+
 gem 'dotenv-rails'
 
 group :development, :test do
