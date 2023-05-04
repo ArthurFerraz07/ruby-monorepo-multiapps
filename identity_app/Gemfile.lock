@@ -1,8 +1,13 @@
 PATH
+  remote: ../santa_cruz
+  specs:
+    santa_cruz (1.0.0)
+      awesome_print
+
+PATH
   remote: .
   specs:
     identity_app (1.0.0)
-      awesome_print
       bcrypt
       dotenv-rails
       rails (~> 7.0.4)
@@ -176,7 +181,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  awesome_print
   bcrypt (~> 3.1.7)
   bootsnap
   debug
@@ -186,6 +190,7 @@ DEPENDENCIES
   pry
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  santa_cruz!
   tzinfo-data
 
 RUBY VERSION

@@ -15,12 +15,11 @@ module IdentityApp
 
       def authenticate!
         service_response = SigninService.new(email: request.headers['EMAIL'],
-                                            password: request.headers['PASSWORD']).call
+                                             password: request.headers['PASSWORD']).call
 
         if service_response.success
           @identity = service_response.data[:identity]
         else
-          binding.pry
           raise AuthenticationError, service_response.error_message
         end
       end

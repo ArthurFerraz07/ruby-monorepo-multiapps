@@ -36,6 +36,7 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
+gem 'santa_cruz', path: '../santa_cruz'
 gem 'identity_app', path: '../identity_app'
 
 gem 'async'

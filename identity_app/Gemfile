@@ -39,13 +39,10 @@ gem "bootsnap", require: false
 # environment variables
 gem 'dotenv-rails'
 
-# print
-gem 'awesome_print'
-
 # bcrypt
 gem "bcrypt", "~> 3.1.7"
 
-gem 'dotenv-rails'
+gem 'santa_cruz', path: '../santa_cruz'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 module IdentityApp
-  class SignupService < ApplicationService
+  class SignupService < SantaCruz::ApplicationService
     def initialize(params)
       super()
       @email = params[:email]
@@ -14,18 +14,12 @@ module IdentityApp
         encrypted_password: encrypt_password
       )
 
-      identity.transaction do
-        identity.save!
-
-        @response = ServiceResponse.new(
-          success: true,
-          data: { identity: }
-        )
-      end
+      identity.save!
+      build_response(data: { identity: })
     rescue ActiveRecord::RecordInvalid => e
-      ServiceResponse.new(success: false, error: e)
+      build_response(success: false, error: SantaCruz::ServiceError.new(e.message, genesis_error: e))
     rescue StandardError => e
-      ServiceResponse.new(success: false, error: ServiceError.new('error', genesis_error: e))
+      build_response(success: false, error: SantaCruz::ServiceError.new('error', genesis_error: e))
     end
 
     private

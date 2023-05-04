@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 module IdentityApp
-  class SigninService < ApplicationService
+  class SigninService < SantaCruz::ApplicationService
     def initialize(params)
       super()
       @email = params[:email]
@@ -12,13 +12,13 @@ module IdentityApp
       load_identity
       verify_password
 
-      ServiceResponse.new(data: { identity: @identity })
-    rescue ServiceError => e
-      ServiceResponse.new(success: false, error: e)
+      build_response(data: { identity: @identity })
+    rescue SantaCruz::ServiceError => e
+      build_response(success: false, error: e)
     rescue ActiveRecord::RecordNotFound => e
-      ServiceResponse.new(success: false, error: ServiceError.new('invalid email', genesis_error: e))
+      build_response(success: false, error: SantaCruz::ServiceError.new('invalid email', genesis_error: e))
     rescue StandardError => e
-      ServiceResponse.new(success: false, error: ServiceError.new('error', genesis_error: e))
+      build_response(success: false, error: SantaCruz::ServiceError.new('error', genesis_error: e))
     end
 
     private
@@ -28,7 +28,7 @@ module IdentityApp
     end
 
     def verify_password
-      raise ServiceError, 'invalid password' unless BCrypt::Password.new(@identity.encrypted_password) == @password
+      raise SantaCruz::ServiceError, 'invalid password' unless BCrypt::Password.new(@identity.encrypted_password) == @password
     end
   end
 end
