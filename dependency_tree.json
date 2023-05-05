@@ -1,0 +1,20 @@
+{
+  "santa_cruz": {
+    "dependents": [
+      "withings_app",
+      "identity_app",
+      "price_app"
+    ]
+  },
+  "price_app": {
+    "dependents": []
+  },
+  "identity_app": {
+    "dependents": [
+      "withings_app"
+    ]
+  },
+  "withdraw_app": {
+    "dependents": []
+  }
+}
