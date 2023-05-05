@@ -30,13 +30,8 @@ Cada app:
 - tem suas próprias rotina de CI/CD;
 - consegue reaproveitar código de outros apps - withdraw_app, por exemplo, reaproveita o código do identity_app;
 
-Para criar novo app:
-- Se for um app rails, utilizar o `rails new ...`. com/sem frontend, com/sem banco de dados, etc;
-- Se não for, basta criar uma pasta e colocar o código;
-- Sempre declarar `gemspec` e `lib`, para que seja possível incluir como dependência em outros apps;
-
 Para rodar os testes:
-- Entrar na pasta do app e rodar `bundle exec rspec`; (pending)
+- TODO;
 
 ## Criando apps
 ### App rails ou ruby puro?
