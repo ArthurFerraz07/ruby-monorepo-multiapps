@@ -2,33 +2,36 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   withdraw_app:
     <<: *default
+    host: <%= ENV.fetch("WITHDRAW_DB_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("WITHDRAW_DB_PORT") { 5432 } %>
     username: user
     password: password
     database: withdraw_development
-    port: 5436
   identity_app:
     <<: *default
+    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
     username: user
     password: password
     database: identity_development
-    port: 5434
 
 test:
   withdraw_app:
     <<: *default
+    host: <%= ENV.fetch("WITHDRAW_DB_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("WITHDRAW_DB_PORT") { 5432 } %>
     username: user
     password: password
     database: withdraw_test
-    port: 5437
   identity_app:
     <<: *default
+    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
     username: user
     password: password
     database: identity_test
-    port: 5435

@@ -31,10 +31,6 @@ Para criar novo app:
 Para rodar os testes:
 - Entrar na pasta do app e rodar `bundle exec rspec`; (pending)
 
-
 ## Criando apps
 ### App rails ou ruby puro?
 1. Se for um app rails, utilizar o `rails new new_app [OPTIONS]`
-
-
-
