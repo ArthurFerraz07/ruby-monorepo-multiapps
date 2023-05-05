@@ -21,7 +21,7 @@ Desejável:
   - multiapps
 
 Cada app:
-- é um app ruby idenpendente;
+- é um app ruby independente;
 - pode ser um app rails ou não;
 - é uma gema - portanto incluído quando necessário;
 - tem seu próprio entrypoint - menos santa cruz;
