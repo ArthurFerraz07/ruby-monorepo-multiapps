@@ -1,9 +1,19 @@
 GIT
   remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
-  revision: 3a58a7eaa3db35a40fc38b0b402e519534994f1c
+  revision: 211b146d5781a26793a243785caca6aebb08bc41
+  branch: main
   specs:
     santa_cruz (1.0.0)
       awesome_print
+      pry
+
+PATH
+  remote: ../santa_cruz_auth
+  specs:
+    santa_cruz_auth (1.0.0)
+      activesupport
+      jwt
+      santa_cruz
 
 GEM
   remote: https://rubygems.org/
@@ -185,6 +195,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   santa_cruz!
+  santa_cruz_auth!
   tzinfo-data
 
 RUBY VERSION

@@ -46,7 +46,8 @@ gem "bcrypt", "~> 3.1.7"
 gem 'jwt'
 
 gem 'santa_cruz', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
-gem 'santa_cruz_auth', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
+# gem 'santa_cruz_auth', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
+gem 'santa_cruz_auth', path: '../santa_cruz_auth'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
