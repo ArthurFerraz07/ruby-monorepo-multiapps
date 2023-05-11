@@ -23,7 +23,7 @@ module SantaCruzAuth
         ).call
 
         if service_response.success
-          @identity = load_identity(service_response.data[:email])
+          load_identity(service_response.data[:email]) if respond_to?(:load_identity)
         else
           raise AuthenticationError, service_response.error_message
         end
