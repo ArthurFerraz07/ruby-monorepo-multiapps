@@ -11,11 +11,13 @@ Funcionalidades:
 Apps:
 - identity_app: app rails para cadastro, login e autenticação dos demais serviços;
 - withdraw_app: app rails para saque e listagem de saques. Precisa estar autenticado para realizar saques;
-- price_app: app rails para cotação. Sem conexão com o banco de dados. Não precisa estar autenticado para consultar a cotação;
+- price_app: app rails para cotação. em conexão com o banco de dados. Não precisa estar autenticado para consultar a cotação;
 
 Bibliotecas:
 - santa cruz: código compartilhado entre os apps;
 - santa cruz auth: autenticação compartilhada entre os apps - necessário para o identity_app e withdraw_app;
+
+![Diagrama](docs/diagrama.png)
 
 Sobre os apps:
 - é um app ruby independente;
