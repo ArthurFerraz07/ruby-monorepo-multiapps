@@ -1,4 +1,5 @@
-# require "activesupport/concern"
+require 'santa_cruz'
+require 'active_support/concern'
 
 module SantaCruzAuth
   module AuthenticationConcern
@@ -19,7 +20,7 @@ module SantaCruzAuth
         service_response = AuthenticateService.new(token: request.headers['Authorization']).call
 
         if service_response.success
-          @identity = service_response.data[:identity]
+          @identity = load_identity(service_response.data[:identity_email])
         else
           raise AuthenticationError, service_response.error_message
         end

@@ -1,10 +1,8 @@
+require 'santa_cruz'
 require 'jwt'
 
 module SantaCruzAuth
-  class AuthenticateService < SantaCruz::ApplicationService
-    JWT_ALGORITHM = 'HS256'.freeze
-    JWT_HMAC_SECRET = ENV['HMAC_SECRET']
-
+  class Authenticate < SantaCruz::ApplicationService
     def initialize(params)
       super()
       @token = params[:token]
