@@ -4,13 +4,13 @@ class WithdrawsController < ApplicationController
   before_action :authenticate!, only: %i[start index]
 
   def index
-    withdraws = Withdraw.where(identity_email: @identity_email)
+    withdraws = Withdraw.where(identity_email:)
     render(json: withdraws)
   end
 
   # POST /withdraws
   def start
-    service_response = WithdrawService.new(withdraw_params.merge(identity_email: @identity_email)).call
+    service_response = WithdrawService.new(withdraw_params.merge(identity_email:)).call
     if service_response.success
       render(json: service_response.data)
     else

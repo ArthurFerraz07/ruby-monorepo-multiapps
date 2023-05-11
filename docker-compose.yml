@@ -30,8 +30,8 @@ services:
     ports:
       - "3002:3002"
     depends_on:
-      - identity_database
       - withdraw_database
+      - identity_app
     environment:
       APP_NAME: withdraw_app
       WITHDRAW_DB_HOST: withdraw_database
@@ -39,6 +39,7 @@ services:
       SANTA_CRUZ_AUTH_SECRET: secret
       SANTA_CRUZ_AUTH_ALGORITHM: HS256
       SANTA_CRUZ_AUTH_EXPIRATION: 3600
+      SANTA_CRUZ_GET_IDENTITY_URL: http://identity_app:3001/identity
 
   identity_database:
     image: postgres

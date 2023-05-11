@@ -6,7 +6,7 @@ class IdentitiesController < ApplicationController
   before_action :authenticate!, only: %i[show authenticate]
 
   def show
-    render(json: identity)
+    render(json: identity_info)
   end
 
   def authenticate
