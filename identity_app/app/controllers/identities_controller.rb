@@ -1,7 +1,9 @@
+require 'santa_cruz_auth'
+
 class IdentitiesController < ApplicationController
   include SantaCruzAuth::AuthenticationConcern
 
-  before_action :authenticate!, only: [:show, :authenticate]
+  before_action :authenticate!, only: %i[show authenticate]
 
   def show
     render(json: identity)
