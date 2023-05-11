@@ -6,29 +6,14 @@ Funcionalidades:
 - Saque crypto (Withdraw app)
 - Cotação (Price app)
 
-Desejável:
-- Padronização de comunicação API (erros, formato);
-  - santa_cruz
-- Boa observabilidade - debug (apenas uma implementação pra todo mundo, rollbar, prometheus, grafana, etc);
-  - santa_cruz
-- Reuitilização de código;
-  - apps as gems
-- Código isolado - apenas os apps que precisam de uma funcionalidade tem acesso a ela;
-  - apps as gems
-- CI/CD independente;
-  - multiapps
-- Testes independentes;
-  - multiapps
-
 Cada app:
 - é um app ruby independente;
 - pode ser um app rails ou não;
-- é uma gema - portanto incluído quando necessário;
-- tem seu próprio entrypoint - menos santa cruz;
+- tem seu próprio entrypoint - menos as libs, como santa cruz ou santa cruz auth;
 - pode ter seu próprio banco de dados - price_app, por exemplo, não possui;
-- tem seus próprios testes;
-- tem suas próprias rotina de CI/CD;
-- consegue reaproveitar código de outros apps - withdraw_app, por exemplo, reaproveita o código do identity_app;
+- tem seus próprios testes; PENDENTE
+- tem suas próprias rotina de CI; PENDENTE
+- tem suas próprias rotina de CD; dockerfile :)
 
 Para rodar os testes:
 - TODO;
@@ -67,4 +52,4 @@ Só rodar `docker compose up price_app`
 1. Rodar `docker compose up withdraw_app`
 2. consultar o container do withdraw_app `docker ps | grep withdraw_app`
 3. entrar no container `docker exec -it <container_id> bash`
-4. rodar `rails db:create:withdraw_app db:migrate:withdraw_app`
+4. rodar `rails db:create db:migrate`
