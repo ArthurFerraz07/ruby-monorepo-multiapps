@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'santa_cruz'
   s.add_dependency 'jwt'
   s.add_dependency 'activesupport'
+  s.add_dependency 'httparty'
 end

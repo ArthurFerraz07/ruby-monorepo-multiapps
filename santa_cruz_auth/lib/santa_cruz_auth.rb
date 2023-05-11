@@ -1,4 +1,4 @@
-require 'santa_cruz_auth/models/identity_info'
+require 'santa_cruz_auth/identity_info'
 require 'santa_cruz_auth/generate_token'
 require 'santa_cruz_auth/authenticate'
 require 'santa_cruz_auth/authenticate_concern'

@@ -15,7 +15,7 @@ module SantaCruzAuth
     def call
       verify_email
       load_identity_info
-      SantaCruz::ServiceResponse.new(identity_info: @identity_info)
+      SantaCruz::ServiceResponse.new(data: @identity_info)
     end
 
     private
@@ -48,7 +48,7 @@ module SantaCruzAuth
     end
 
     def verify_email
-      raise SantaCruz::ServiceError, 'Email cannot be blank' if email.blank?
+      raise SantaCruz::ServiceError, 'Email cannot be blank' if @email.blank?
     end
   end
 end
