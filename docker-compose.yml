@@ -17,6 +17,7 @@ services:
     depends_on:
       - identity_database
     environment:
+      APP_NAME: identity_app
       IDENTITY_DB_HOST: identity_database
       IDENTITY_DB_PORT: 5432
       SANTA_CRUZ_AUTH_SECRET: secret
@@ -32,6 +33,7 @@ services:
       - identity_database
       - withdraw_database
     environment:
+      APP_NAME: withdraw_app
       WITHDRAW_DB_HOST: withdraw_database
       WITHDRAW_DB_PORT: 5432
       SANTA_CRUZ_AUTH_SECRET: secret

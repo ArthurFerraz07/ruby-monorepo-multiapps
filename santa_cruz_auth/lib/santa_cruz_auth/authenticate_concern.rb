@@ -11,8 +11,8 @@ module SantaCruzAuth
         render(json: { error: exception.message }, status: 401)
       end
 
-      def identity
-        @identity
+      def identity_info
+        @identity_info
       end
 
       def authenticate!
@@ -23,7 +23,7 @@ module SantaCruzAuth
         ).call
 
         if service_response.success
-          load_identity(service_response.data[:email]) if respond_to?(:load_identity)
+          @identity_info = service_response.identity_info
         else
           raise AuthenticationError, service_response.error_message
         end
