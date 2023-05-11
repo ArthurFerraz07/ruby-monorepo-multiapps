@@ -1,5 +1,6 @@
 class WithdrawsController < ApplicationController
-  include IdentityApp::AuthenticationConcern
+  include SantaCruzAuth::AuthenticateConcern
+
   before_action :authenticate!, only: %i[start index]
 
   def index

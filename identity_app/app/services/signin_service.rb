@@ -1,7 +1,7 @@
 class SigninService < SantaCruz::ApplicationService
-  JWT_ALGORITHM = 'HS256'.freeze
-  JWT_HMAC_SECRET = ENV['HMAC_SECRET']
-  TOKEN_EXPIRATION = 4 * 3600 # 4 hours
+  SECRET = ENV['SANTA_CRUZ_AUTH_SECRET']
+  ALGORITHM = ENV['SANTA_CRUZ_AUTH_ALGORITHM']
+  EXPIRATION = ENV['SANTA_CRUZ_AUTH_EXPIRATION']
 
   def initialize(params)
     super()
@@ -28,12 +28,17 @@ class SigninService < SantaCruz::ApplicationService
   end
 
   def generate_token
-    santa_cruz_auth_response = SantaCruzAuth::GenerateToken.new(@identity.email).call
+    santa_cruz_auth_response = SantaCruzAuth::GenerateToken.new(
+      email: @identity.email,
+      secret: SECRET,
+      algorithm: ALGORITHM,
+      expiration: EXPIRATION
+    ).call
 
     if santa_cruz_auth_response.success
-      @token = santa_cruz_auth_response.data
+      @token = santa_cruz_auth_response.data[:token]
     else
-      raise SantaCruz::ServiceError.new('invalid token', genesis_error: santa_cruz_auth_response.error)
+      raise santa_cruz_auth_response.error
     end
   end
 

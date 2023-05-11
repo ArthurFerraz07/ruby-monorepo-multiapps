@@ -1,48 +1,50 @@
-require 'santa_cruz'
+require 'santa_cruz/service_response'
+require 'santa_cruz/service_error'
 require 'jwt'
-require 'pry'
 
-binding.pry
 module SantaCruzAuth
-  class Authenticate < SantaCruz::ApplicationService
-    # def initialize(params)
-    #   super()
-    #   @token = params[:token]
-    # end
+  class Authenticate
+    def initialize(params)
+      @token = params[:token]
+      @secret = params[:secret]
+      @algorithm = params[:algorithm]
+    end
 
-    # def call
-    #   define_timestamp
-    #   decode_token
-    #   load_identity_email
+    def call
+      define_timestamp
+      decode_token
+      load_email
 
-    #   raise SantaCruz::ServiceError, 'expired token' if @token_payload['exp'] < @timestamp
+      raise SantaCruz::ServiceError, 'expired token' if @token_payload['exp'] < @timestamp
 
-    #   build_response(data: { identity_email: @identity_email })
-    # rescue SantaCruz::ServiceError => e
-    #   build_response(success: false, error: e)
-    # end
+      SantaCruz::ServiceResponse.new(success: true, data: { email: @email })
+    rescue SantaCruz::ServiceError => e
+      SantaCruz::ServiceResponse.new(success: false, error: e)
+    end
 
-    # private
+    private
 
-    # def decode_token
-    #   raise SantaCruz::ServiceError, 'missing token' if @token.blank?
+    def decode_token
+      raise SantaCruz::ServiceError, 'missing token' if @token.blank?
+      raise SantaCruz::ServiceError, 'missing secret' if @secret.blank?
+      raise SantaCruz::ServiceError, 'missing algorithm' if @algorithm.blank?
 
-    #   decoded_token = JWT.decode @token, JWT_HMAC_SECRET, true, { algorithm: JWT_ALGORITHM }
+      decoded_token = JWT.decode @token, @secret, true, { algorithm: @algorithm }
 
-    #   @token_payload = decoded_token.first
-    #   @token_header = decoded_token.last
-    # rescue JWT::DecodeError => e
-    #   raise SantaCruz::ServiceError.new('invalid token', genesis_error: e)
-    # end
+      @token_payload = decoded_token.first
+      @token_header = decoded_token.last
+    rescue JWT::DecodeError => e
+      raise SantaCruz::ServiceError.new('invalid token', genesis_error: e)
+    end
 
-    # def define_timestamp
-    #   @timestamp = Time.now.to_i
-    # end
+    def define_timestamp
+      @timestamp = Time.now.to_i
+    end
 
-    # def load_identity_email
-    #   @identity_email = @token_payload['identity_email']
+    def load_email
+      @email = @token_payload['email']
 
-    #   raise SantaCruz::ServiceError, 'invalid email' if @identity_email.blank?
-    # end
+      raise SantaCruz::ServiceError, 'invalid email' if @email.blank?
+    end
   end
 end

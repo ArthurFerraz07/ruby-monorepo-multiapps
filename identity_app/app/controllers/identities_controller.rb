@@ -1,7 +1,7 @@
 require 'santa_cruz_auth'
 
 class IdentitiesController < ApplicationController
-  include SantaCruzAuth::AuthenticationConcern
+  include SantaCruzAuth::AuthenticateConcern
 
   before_action :authenticate!, only: %i[show authenticate]
 
