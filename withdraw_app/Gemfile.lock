@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
-  revision: 3a58a7eaa3db35a40fc38b0b402e519534994f1c
+  revision: 257846b1080c381bfe617662b73ea8486b1d8e40
+  branch: main
   specs:
     santa_cruz (1.0.0)
       awesome_print
-
-PATH
-  remote: ../santa_cruz_auth
-  specs:
+      pry
     santa_cruz_auth (1.0.0)
+      activesupport
+      jwt
       santa_cruz
 
 GEM
@@ -110,6 +110,7 @@ GEM
     io-event (1.2.0)
     irb (1.6.4)
       reline (>= 0.3.0)
+    jwt (2.7.0)
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)

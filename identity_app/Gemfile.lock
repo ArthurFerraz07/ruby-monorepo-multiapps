@@ -6,10 +6,6 @@ GIT
     santa_cruz (1.0.0)
       awesome_print
       pry
-
-PATH
-  remote: ../santa_cruz_auth
-  specs:
     santa_cruz_auth (1.0.0)
       activesupport
       jwt
