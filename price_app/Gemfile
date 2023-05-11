@@ -31,7 +31,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 # santa cruz monorepo apps
-gem 'santa_cruz', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git'
+gem 'santa_cruz', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
 
 gem 'dotenv-rails'
 
