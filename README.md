@@ -1,12 +1,23 @@
 # Monorepo rails - multiapps
 
 Funcionalidades:
-- Cadastro (Identity app)
-- Login (Identity app)
-- Saque crypto (Withdraw app)
-- Cotação (Price app)
+- Cadastro (Identity app - Signup)
+- Login (Identity app - Signin)
+- Ver cadastro (Identity app - Show)
+- Saque (Withdraw app - Start)
+- Listar saques (Withdraw app - Index)
+- Cotação (Price app - Index)
 
-Cada app:
+Apps:
+- identity_app: app rails para cadastro, login e autenticação dos demais serviços;
+- withdraw_app: app rails para saque e listagem de saques. Precisa estar autenticado para realizar saques;
+- price_app: app rails para cotação. Sem conexão com o banco de dados. Não precisa estar autenticado para consultar a cotação;
+
+Bibliotecas:
+- santa cruz: código compartilhado entre os apps;
+- santa cruz auth: autenticação compartilhada entre os apps - necessário para o identity_app e withdraw_app;
+
+Sobre os apps:
 - é um app ruby independente;
 - pode ser um app rails ou não;
 - tem seu próprio entrypoint - menos as libs, como santa cruz ou santa cruz auth;
@@ -14,20 +25,6 @@ Cada app:
 - tem seus próprios testes; PENDENTE
 - tem suas próprias rotina de CI; PENDENTE
 - tem suas próprias rotina de CD; dockerfile :)
-
-Para rodar os testes:
-- TODO;
-
-## Criando apps
-### App rails ou ruby puro?
-1. Para apps Rails utilizar o `rails new new_app [OPTIONS]`
-   1. Se for apenas api, sem frontend utilizar `--api`
-   2. se não precisar da orm (sem banco), utilizar `--skip-active-record`
-2. Se não, criar uma pasta e colocar o código
-3. criar new_app.gemspec
-4. criar lib/new_app.rb
-   1. criar, tambem, lib/new_app/engine.rb se for um app rails
-5. criar dockerfile
 
 ## Configurando os apps
 ## multiapps
@@ -53,3 +50,17 @@ Só rodar `docker compose up price_app`
 2. consultar o container do withdraw_app `docker ps | grep withdraw_app`
 3. entrar no container `docker exec -it <container_id> bash`
 4. rodar `rails db:create db:migrate`
+
+## Rodando os testes
+- TODO;
+
+## Criando apps
+### App rails ou ruby puro?
+1. Para apps Rails utilizar o `rails new new_app [OPTIONS]`
+   1. Se for apenas api, sem frontend utilizar `--api`
+   2. se não precisar da orm (sem banco), utilizar `--skip-active-record`
+2. Se não, criar uma pasta e colocar o código
+3. criar new_app.gemspec
+4. criar lib/new_app.rb
+   1. criar, tambem, lib/new_app/engine.rb se for um app rails
+5. criar dockerfile
