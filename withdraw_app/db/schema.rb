@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_234856) do
   enable_extension "plpgsql"
 
   create_table "withdraws", force: :cascade do |t|
-    t.bigint "identity_id", null: false
+    t.string "identity_email", null: false
     t.string "currency", null: false
     t.string "address", null: false
     t.decimal "amount", null: false

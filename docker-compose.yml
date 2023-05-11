@@ -19,6 +19,9 @@ services:
     environment:
       IDENTITY_DB_HOST: identity_database
       IDENTITY_DB_PORT: 5432
+      SANTA_CRUZ_AUTH_SECRET: secret
+      SANTA_CRUZ_AUTH_ALGORITHM: HS256
+      SANTA_CRUZ_AUTH_EXPIRATION: 3600
     
   withdraw_app:
     build: withdraw_app
@@ -29,9 +32,11 @@ services:
       - identity_database
       - withdraw_database
     environment:
-      APP_NAME: withdraw_app
       WITHDRAW_DB_HOST: withdraw_database
       WITHDRAW_DB_PORT: 5432
+      SANTA_CRUZ_AUTH_SECRET: secret
+      SANTA_CRUZ_AUTH_ALGORITHM: HS256
+      SANTA_CRUZ_AUTH_EXPIRATION: 3600
 
   identity_database:
     image: postgres

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
-  revision: 211b146d5781a26793a243785caca6aebb08bc41
+  revision: 349ffd377a3fde866f1aaabbacc8eba3df720426
   branch: main
   specs:
     santa_cruz (1.0.0)

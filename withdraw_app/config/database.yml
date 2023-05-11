@@ -12,13 +12,6 @@ development:
     username: user
     password: password
     database: withdraw_development
-  identity_app:
-    <<: *default
-    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
-    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
-    username: user
-    password: password
-    database: identity_development
 
 test:
   withdraw_app:
@@ -28,10 +21,3 @@ test:
     username: user
     password: password
     database: withdraw_test
-  identity_app:
-    <<: *default
-    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
-    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
-    username: user
-    password: password
-    database: identity_test

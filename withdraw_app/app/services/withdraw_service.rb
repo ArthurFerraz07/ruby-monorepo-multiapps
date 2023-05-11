@@ -1,10 +1,10 @@
 class WithdrawService < SantaCruz::ApplicationService
   def initialize(params)
     super()
-    @identity_id  = params[:identity_id]
-    @currency     = params[:currency]
-    @amount       = params[:amount]
-    @address      = params[:address]
+    @identity_email  = params[:identity_email]
+    @currency        = params[:currency]
+    @amount          = params[:amount]
+    @address         = params[:address]
   end
 
   def call
@@ -25,7 +25,7 @@ class WithdrawService < SantaCruz::ApplicationService
 
   def build_withdraw
     @withdraw = Withdraw.create!(
-      identity_id: @identity_id,
+      identity_email: @identity_email,
       currency: @currency,
       amount: @amount,
       address: @address,
