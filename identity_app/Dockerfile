@@ -7,8 +7,7 @@ WORKDIR /identity_app
 
 # Copie os arquivos do aplicativo para o contêiner
 # COPY santa_cruz/* /santa_cruz
-COPY ./santa_cruz /santa_cruz
-COPY ./identity_app /identity_app
+COPY ./ /identity_app
 
 # Instale as dependências do sistema necessárias para o aplicativo Rails
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs

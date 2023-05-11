@@ -1,22 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: user
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
+  port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
 
 development:
   identity_app:
     <<: *default
-    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
-    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
-    username: user
-    password: password
     database: identity_development
 
 test:
   identity_app:
     <<: *default
-    host: <%= ENV.fetch("IDENTITY_DB_HOST") { 'localhost' } %>
-    port: <%= ENV.fetch("IDENTITY_DB_PORT") { 5432 } %>
-    username: user
-    password: password
     database: identity_test

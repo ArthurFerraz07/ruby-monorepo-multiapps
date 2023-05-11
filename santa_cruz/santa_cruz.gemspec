@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = Dir['{lib}/**/*', 'README.md', 'santa_cruz.gemspec']
   s.require_paths = ['lib']
   s.add_dependency 'awesome_print'
+  s.add_dependency 'pry'
 end
