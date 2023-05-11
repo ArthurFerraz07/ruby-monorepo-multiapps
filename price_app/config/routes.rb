@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  if ENV['APP_NAME'] == PriceApp::APP_NAME
-    scope '/price', module: PriceApp::APP_NAME do
-      get '/', to: 'prices#index'
-    end
+  scope '/price' do
+    get '/', to: 'prices#index'
   end
 end

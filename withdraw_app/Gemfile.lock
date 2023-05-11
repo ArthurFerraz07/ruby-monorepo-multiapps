@@ -1,16 +1,15 @@
-PATH
-  remote: ../identity_app
-  specs:
-    identity_app (1.0.0)
-      bcrypt
-      dotenv-rails
-      rails (~> 7.0.4)
-
-PATH
-  remote: ../santa_cruz
+GIT
+  remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
+  revision: 3a58a7eaa3db35a40fc38b0b402e519534994f1c
   specs:
     santa_cruz (1.0.0)
       awesome_print
+
+PATH
+  remote: ../santa_cruz_auth
+  specs:
+    santa_cruz_auth (1.0.0)
+      santa_cruz
 
 GEM
   remote: https://rubygems.org/
@@ -85,7 +84,6 @@ GEM
       io-event (~> 1.1)
       timers (~> 4.1)
     awesome_print (1.9.2)
-    bcrypt (3.1.18)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -194,12 +192,12 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
-  identity_app!
   pg (~> 1.1)
   pry
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   santa_cruz!
+  santa_cruz_auth!
   tzinfo-data
 
 RUBY VERSION
