@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   price_app:
-    build: price_app
+    build:
+      context: .
+      dockerfile: price_app/Dockerfile
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - "3000:3000"
@@ -10,7 +12,9 @@ services:
       APP_NAME: price_app
 
   identity_app:
-    build: identity_app
+    build:
+      context: .
+      dockerfile: identity_app/Dockerfile
     command: bundle exec rails s -p 3001 -b '0.0.0.0'
     ports:
       - "3001:3001"
@@ -25,7 +29,9 @@ services:
       SANTA_CRUZ_AUTH_EXPIRATION: 3600
     
   withdraw_app:
-    build: withdraw_app
+    build:
+      context: .
+      dockerfile: withdraw_app/Dockerfile
     command: bundle exec rails s -p 3002 -b '0.0.0.0'
     ports:
       - "3002:3002"

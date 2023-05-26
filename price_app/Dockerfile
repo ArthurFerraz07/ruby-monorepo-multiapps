@@ -6,7 +6,8 @@ RUN mkdir -p /price_app
 WORKDIR /price_app
 
 # Copie os arquivos do aplicativo para o contêiner
-COPY ./ /price_app
+COPY ./price_app /price_app
+COPY ./santa_cruz /santa_cruz
 
 # Instale as dependências do sistema necessárias para o aplicativo Rails
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs

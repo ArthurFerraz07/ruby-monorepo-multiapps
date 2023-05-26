@@ -7,7 +7,9 @@ WORKDIR /withdraw_app
 
 # Copie os arquivos do aplicativo para o contêiner
 # COPY santa_cruz/* /santa_cruz
-COPY ./ /withdraw_app
+COPY ./withdraw_app /withdraw_app
+COPY ./santa_cruz /santa_cruz
+COPY ./santa_cruz_auth /santa_cruz_auth
 
 # Instale as dependências do sistema necessárias para o aplicativo Rails
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs

@@ -15,4 +15,4 @@ gem 'activesupport'
 
 gem 'httparty'
 
-gem 'santa_cruz', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
+gem 'santa_cruz', path: '../santa_cruz'

@@ -36,8 +36,8 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
-gem 'santa_cruz', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
-gem 'santa_cruz_auth', git: 'https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git', branch: 'main'
+gem 'santa_cruz', path: '../santa_cruz'
+gem 'santa_cruz_auth', path: '../santa_cruz_auth'
 
 gem 'async'
 
