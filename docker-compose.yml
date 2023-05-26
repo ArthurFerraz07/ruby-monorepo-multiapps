@@ -10,6 +10,8 @@ services:
       - "3000:3000"
     environment:
       APP_NAME: price_app
+    volumes:
+      - ./price_app:/price_app
 
   identity_app:
     build:
@@ -27,6 +29,8 @@ services:
       SANTA_CRUZ_AUTH_SECRET: secret
       SANTA_CRUZ_AUTH_ALGORITHM: HS256
       SANTA_CRUZ_AUTH_EXPIRATION: 3600
+    volumes:
+      - ./identity_app:/identity_app
     
   withdraw_app:
     build:
@@ -46,6 +50,8 @@ services:
       SANTA_CRUZ_AUTH_ALGORITHM: HS256
       SANTA_CRUZ_AUTH_EXPIRATION: 3600
       SANTA_CRUZ_GET_IDENTITY_URL: http://identity_app:3001/identity
+    volumes:
+      - ./withdraw_app:/withdraw_app
 
   identity_database:
     image: postgres
@@ -70,3 +76,6 @@ services:
 volumes:
   identity_database:
   withdraw_database:
+  price_app:
+  identity_app:
+  withdraw_app:

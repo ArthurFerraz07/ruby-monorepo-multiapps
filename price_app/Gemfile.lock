@@ -1,7 +1,5 @@
-GIT
-  remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
-  revision: 257846b1080c381bfe617662b73ea8486b1d8e40
-  branch: main
+PATH
+  remote: ../santa_cruz
   specs:
     santa_cruz (1.0.0)
       awesome_print

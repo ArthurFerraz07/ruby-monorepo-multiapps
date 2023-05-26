@@ -1,16 +1,18 @@
-GIT
-  remote: https://github.com/ArthurFerraz07/ruby-monorepo-multiapps.git
-  revision: 6681371d7790cf559c8ffef5ccb8072c9425989c
-  branch: main
+PATH
+  remote: ../santa_cruz_auth
   specs:
-    santa_cruz (1.0.0)
-      awesome_print
-      pry
     santa_cruz_auth (1.0.0)
       activesupport
       httparty
       jwt
       santa_cruz
+
+PATH
+  remote: ../santa_cruz
+  specs:
+    santa_cruz (1.0.0)
+      awesome_print
+      pry
 
 GEM
   remote: https://rubygems.org/
